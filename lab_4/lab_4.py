@@ -103,19 +103,13 @@ class Processing():
         j = {i: self.dict_reading[i]['Дата'] for i in self.iterat()}
         j = sorted(j, key = j.get)
         j = {i: self.dict_reading[j[i]] for i in self.iterat()}
-        print(" ".join(self.dict_reading[0].keys()))
-        for i in self.iterat():
-            print("{:<3}{:>3}{:>6}{:>8}{:>10}{:>10}{:>11}".format(*j[i].values()))
-        self.dict_outputing = j
+        output_in_console(self.iterat(), j)
 
     def sort_int(self):
         j = {i: self.dict_reading[i]['Температура'] for i in self.iterat()}
         j = sorted(j, key = j.get)
         j = {i: self.dict_reading[j[i]] for i in self.iterat()}
-        print(" ".join(self.dict_reading[0].keys()))
-        for i in self.iterat():
-            print("{:<3}{:>3}{:>6}{:>8}{:>10}{:>10}{:>11}".format(*j[i].values()))
-        self.dict_outputing = j
+        output_in_console(self.iterat(), j)
 
     def sort_criterion(self):
         try:
@@ -132,10 +126,13 @@ class Processing():
         else:
             m = j.copy()
             j = {i: self.dict_reading[i] for i in m}
-            print(" ".join(self.dict_reading[0].keys()))
-            for i in m:
-                 print("{:<3}{:>3}{:>6}{:>8}{:>10}{:>10}{:>11}".format(*j[i].values()))
-            self.dict_outputing = j
+            output_in_console(m, j)
+
+    def output_in_console(self, m, j):
+        print(" ".join(self.dict_reading[0].keys()))
+        for i in m:
+            print("{:<3}{:>3}{:>6}{:>8}{:>10}{:>10}{:>11}".format(*j[i].values()))
+        self.dict_outputing = j
 
     def output_in_file(self):
 
