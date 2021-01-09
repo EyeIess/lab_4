@@ -1,9 +1,7 @@
 import os
 import csv
 class Place:
-    """
-    
-    """
+
     def __init__(self, place, width, height, par):
         self.place = place
         self.width = width
@@ -20,6 +18,7 @@ class Place:
         pass
 
 class Temperature(Place):
+
     def __init__(self, number, temp, time, date, place, width, height, par):
         self.number = number
         self.temp = temp
@@ -60,7 +59,6 @@ class Processing():
         with open('C:\\Users\\Mikhail\\Desktop\\data.csv', 'r') as F:
             reading_file = csv.DictReader(F, delimiter=';')
             dict_copy = dict.fromkeys(reading_file.fieldnames)
-            #Files.dict_reading = [dict_copy.update(i) for i in reading_file]
             for i in reading_file:
                 dict_copy.update(i)
                 self.dict_reading[reading_file.line_num - 2] = dict_copy.copy()
@@ -149,17 +147,7 @@ class Processing():
         print("В файл data1.csv были записанно новые данные ")
 
 def main_code():
-    """
-    Функция является основой
-    В ней вызываются такие функцие:
-    check_count_files()
-    reading_from_file()
-    sort_string(dict_reading)
-    sort_int(dict_reading)
-    sort_criterion(dict_reading)
-    output_in_file(dict_outputing)
-    и производиться выбор методов, по введённому значению
-    """
+
     tabl =  Processing()
     print("Метод №1 выводит количество файлов в каталоге")
     print("Метод №2 выводит таблицу отсортированную по полю 'Дата'")
